@@ -2,17 +2,29 @@ import { UsuarioRepositorio } from "../repository/usuario.repo";
 import { Usuario } from "../models/usuario";
 
 export class UsuarioService {
-
   private userRepo: UsuarioRepositorio;
 
-  constructor (){
+  constructor() {
     this.userRepo = new UsuarioRepositorio();
   }
 
-  async criaUsuario (userData: Usuario): Promise<Usuario>{
-
+  async criarUsuario(userData: Usuario): Promise<Usuario> {
     return this.userRepo.create(userData);
-
   }
-  
+
+  async listarUsuarios(): Promise<Usuario[]> {
+    return this.userRepo.list();
+  }
+
+  async buscarUsuarioPorId(id: number): Promise<Usuario | null> {
+    return this.userRepo.findByid(id);
+  }
+
+  async atualizarUsuario(id: number, userData: Partial<Usuario>): Promise<Usuario | null> {
+    return this.userRepo.update(id, userData);
+  }
+
+  async excluirUsuario(id: number): Promise<boolean> {
+    return this.userRepo.delete(id);
+  }
 }
