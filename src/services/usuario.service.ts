@@ -16,6 +16,10 @@ export class UsuarioService {
     return this.userRepo.list();
   }
 
+  async buscarPorusername(username : string): Promise<Usuario | null>{
+    return this.userRepo.findByusername(username);
+  }
+
   async buscarUsuarioPorId(id: number): Promise<Usuario | null> {
     return this.userRepo.findByid(id);
   }

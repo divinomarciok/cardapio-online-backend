@@ -13,6 +13,8 @@ import { cupomRotas } from "./routes/cupom.routes";
 import { pedidoRotas } from "./routes/pedido.routes";
 import { pedidoItemRotas } from "./routes/pedidoitem.routes";
 import { pedidoItemAdicionalRotas } from "./routes/pedidoitemadicional.routes";
+import { authRotas } from './routes/auth.routes';
+
 
 
 const app = express();
@@ -27,6 +29,7 @@ app.use('/api', produtoRotas);
 app.use('/api', adicionalRotas);
 app.use('/api', statusPedidoRotas);
 app.use('/api', metodoPagamentoRotas);
+app.use('/api', authRotas);
 app.use('/api', cupomRotas);
 app.use('/api', pedidoRotas);
 app.use('/api', pedidoItemRotas);

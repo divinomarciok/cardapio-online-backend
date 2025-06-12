@@ -6,4 +6,10 @@ export class UsuarioRepositorio extends BaseRepository<Usuario>{
   constructor(){
     super(AppDataSource.getRepository(Usuario));
   }
+
+   async findByusername(username: string): Promise<Usuario | null> {
+      return this.repository.findOne({
+            where: { username: username } as any 
+        });
+  }
 }
